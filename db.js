@@ -67,6 +67,14 @@ db.serialize(() => {
   )`);
   db.run(`CREATE INDEX IF NOT EXISTS idx_friends_title ON friends(title)`);
 
+  db.run(`CREATE TABLE IF NOT EXISTS settings (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    key TEXT UNIQUE NOT NULL,
+    value TEXT NOT NULL
+  )`);
+  db.run(`CREATE INDEX IF NOT EXISTS idx_settings_key ON settings(key)`);
+
+
   // 检查菜单表是否为空，若为空则插入默认菜单
   db.get('SELECT COUNT(*) as count FROM menus', (err, row) => {
     if (row && row.count === 0) {
@@ -282,8 +290,22 @@ db.serialize(() => {
         ['Font Awesome', 'https://fontawesome.com', 'https://fontawesome.com/favicon.ico']
       ];
       const stmt = db.prepare('INSERT INTO friends (title, url, logo) VALUES (?, ?, ?)');
+
       defaultFriends.forEach(([title, url, logo]) => stmt.run(title, url, logo));
+
       stmt.finalize();
+
+  // 初始化settings表，存储默认背景图片URL
+  db.get('SELECT COUNT(*) as count FROM settings', (err, row) => {
+    if (row && row.count === 0) {
+      const defaultSettings = [
+        ['background-image', 'https://link.tyrlink.dpdns.org/IMG_20251122_193636.png']
+      ];
+      const stmt = db.prepare('INSERT INTO settings (key, value) VALUES (?, ?)');
+      defaultSettings.forEach(([key, value]) => stmt.run(key, value));
+      stmt.finalize();
+    }
+  });
     }
   });
 

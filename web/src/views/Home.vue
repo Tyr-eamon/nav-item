@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">
+  <div class="home-container" :style="{ backgroundImage: `url('${backgroundImageUrl}')`  }">
     <div class="menu-bar-fixed">
       <MenuBar 
         :menus="menus" 
@@ -111,7 +111,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { getMenus, getCards, getAds, getFriends } from '../api';
+import { getMenus, getCards, getAds, getFriends, getBackgroundImage } from '../api';
 import MenuBar from '../components/MenuBar.vue';
 import CardGrid from '../components/CardGrid.vue';
 
@@ -124,6 +124,7 @@ const leftAds = ref([]);
 const rightAds = ref([]);
 const showFriendLinks = ref(false);
 const friendLinks = ref([]);
+const backgroundImageUrl = ref('https://link.tyrlink.dpdns.org/IMG_20251122_193636.png');
 
 // 聚合搜索配置
 const searchEngines = [
@@ -177,6 +178,16 @@ const filteredCards = computed(() => {
 });
 
 onMounted(async () => {
+  // 获取背景图片URL
+  try {
+    const bgRes = await getBackgroundImage();
+    if (bgRes.data.url) {
+      backgroundImageUrl.value = bgRes.data.url;
+    }
+  } catch (err) {
+    console.error('获取背景图片失败:', err);
+  }
+
   const res = await getMenus();
   menus.value = res.data;
   if (menus.value.length) {
@@ -340,18 +351,17 @@ function handleLogoError(event) {
 }
 
 .home-container {
-  min-height: 95vh;
-  background-image: url('https://link.tyrlink.dpdns.org/IMG_20251122_193636.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  /* padding: 1rem 1rem; */
-  position: relative;
-  padding-top: 50px; 
-}
+   min-height: 95vh;
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   display: flex;
+   flex-direction: column;
+   /* padding: 1rem 1rem; */
+   position: relative;
+   padding-top: 50px;
+ }
 
 .home-container::before {
   content: '';
