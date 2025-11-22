@@ -1,0 +1,129 @@
+Nav-Item 项目毛玻璃效果 CSS 参数定位结果
+========================================
+
+搜索关键词: backdrop-filter, filter: blur
+搜索范围: /web 目录
+
+========================================
+发现的毛玻璃效果位置 (共5处)
+========================================
+
+1. 【二级菜单】MenuBar 组件
+   文件: /web/src/components/MenuBar.vue
+   行号: 第123行
+   CSS: backdrop-filter: blur(8px);
+   背景: background: #5c595900 (完全透明)
+   边框: border: 1px solid rgba(255, 255, 255, 0.15);
+   阴影: box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+
+2. 【搜索框】Home 页面
+   文件: /web/src/views/Home.vue
+   行号: 第292行
+   CSS: backdrop-filter: blur(10px);
+   背景: background: #b3b7b83b (半透明灰色)
+   阴影: box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+   圆角: border-radius: 20px;
+
+3. 【弹窗遮罩】Home 页面
+   文件: /web/src/views/Home.vue
+   行号: 第489行
+   CSS: backdrop-filter: blur(5px);
+   背景: background: rgba(0, 0, 0, 0.7) (深色遮罩)
+   用途: 友情链接弹窗背景
+
+4. 【广告占位符】Home 页面
+   文件: /web/src/views/Home.vue
+   行号: 第429行
+   CSS: backdrop-filter: blur(10px);
+   背景: background: rgba(255, 255, 255, 0.1);
+   边框: border: 2px dashed rgba(255, 255, 255, 0.3);
+
+5. 【菜单栏固定区域】Home 页面 (已注释)
+   文件: /web/src/views/Home.vue
+   行号: 第258-259行
+   CSS: /* backdrop-filter: blur(8px); */ (已注释)
+   背景: /* background: rgba(0,0,0,0.6); */ (已注释)
+   状态: 未启用
+
+========================================
+相关半透明效果 (无 backdrop-filter)
+========================================
+
+6. 【卡片组件】CardGrid 组件
+   文件: /web/src/components/CardGrid.vue
+   行号: 第178行
+   CSS: background-color: rgba(255, 255, 255, 0.15);
+   悬停: background-color: rgba(255, 255, 255, 0.3);
+   注: 未使用 backdrop-filter，仅半透明背景
+
+========================================
+可调参数汇总表
+========================================
+
+位置          backdrop-filter  背景色透明度   模糊半径   建议调整范围
+----------  ---------------  -----------  --------  --------------
+二级菜单      blur(8px)        0 (透明)      8px      5-12px
+搜索框        blur(10px)       ~0.23         10px     8-15px
+弹窗遮罩      blur(5px)        0.7           5px      3-10px
+广告占位      blur(10px)       0.1           10px     5-15px
+卡片(无blur)  无               0.15          -        0.1-0.3
+
+========================================
+毛玻璃效果核心代码模板
+========================================
+
+/* 标准毛玻璃效果 */
+.element {
+  backdrop-filter: blur(10px);              /* 模糊背景 */
+  background: rgba(255, 255, 255, 0.15);    /* 半透明背景 */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* 半透明边框 */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* 阴影 */
+  border-radius: 12px;                       /* 圆角 */
+}
+
+/* Safari 兼容性 */
+.element {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+========================================
+快速修改指南
+========================================
+
+增强毛玻璃效果:
+  - 提高模糊值: blur(8px) → blur(12px)
+  - 增加背景不透明度: rgba(x,x,x,0.1) → rgba(x,x,x,0.25)
+  - 加深阴影: rgba(0,0,0,0.1) → rgba(0,0,0,0.3)
+
+减弱毛玻璃效果:
+  - 降低模糊值: blur(10px) → blur(5px)
+  - 减少背景不透明度: rgba(x,x,x,0.3) → rgba(x,x,x,0.15)
+  - 减轻阴影: rgba(0,0,0,0.3) → rgba(0,0,0,0.1)
+
+完全移除毛玻璃效果:
+  - 删除 backdrop-filter 属性
+  - 使用纯色背景: background: #ffffff (不使用rgba)
+
+========================================
+性能建议
+========================================
+
+1. 模糊半径不超过 15px (性能考虑)
+2. 移动设备可降低至 5-8px
+3. 避免在滚动容器上使用过多毛玻璃元素
+4. 老旧设备考虑使用纯色背景作为降级方案
+
+========================================
+浏览器兼容性
+========================================
+
+✓ Chrome 76+
+✓ Safari 9+ (需要 -webkit- 前缀)
+✓ Firefox 103+
+✓ Edge 79+
+✗ IE 11 (不支持)
+
+========================================
+
+详细文档请查看: FROSTED_GLASS_CSS_PARAMS.md

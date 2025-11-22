@@ -1,0 +1,187 @@
+{
+  "project": "Nav-Item",
+  "search_keywords": ["backdrop-filter", "filter: blur"],
+  "search_scope": "/web directory",
+  "total_locations": 5,
+  "frosted_glass_effects": [
+    {
+      "id": 1,
+      "name": "二级菜单毛玻璃效果",
+      "component": "MenuBar",
+      "file": "/web/src/components/MenuBar.vue",
+      "line_start": 117,
+      "line_end": 133,
+      "css_class": ".sub-menu",
+      "properties": {
+        "backdrop_filter": "blur(8px)",
+        "background": "#5c595900",
+        "background_rgba": "rgba(92, 89, 89, 0)",
+        "opacity": 0,
+        "border": "1px solid rgba(255, 255, 255, 0.15)",
+        "border_radius": "6px",
+        "box_shadow": "0 4px 16px rgba(0, 0, 0, 0.4)"
+      },
+      "adjustable_params": {
+        "blur_radius": {
+          "current": "8px",
+          "recommended_range": "5-12px"
+        },
+        "background_opacity": {
+          "current": 0,
+          "recommended_range": "0-0.2"
+        },
+        "shadow_opacity": {
+          "current": 0.4,
+          "recommended_range": "0.2-0.5"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": "搜索框毛玻璃效果",
+      "component": "Home",
+      "file": "/web/src/views/Home.vue",
+      "line_start": 285,
+      "line_end": 296,
+      "css_class": ".search-container",
+      "properties": {
+        "backdrop_filter": "blur(10px)",
+        "background": "#b3b7b83b",
+        "background_rgba": "rgba(179, 183, 184, 0.23)",
+        "opacity": 0.23,
+        "border_radius": "20px",
+        "box_shadow": "0 4px 20px rgba(0, 0, 0, 0.1)"
+      },
+      "adjustable_params": {
+        "blur_radius": {
+          "current": "10px",
+          "recommended_range": "8-15px"
+        },
+        "background_opacity": {
+          "current": 0.23,
+          "recommended_range": "0.15-0.35"
+        },
+        "shadow_opacity": {
+          "current": 0.1,
+          "recommended_range": "0.05-0.2"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "弹窗遮罩毛玻璃效果",
+      "component": "Home",
+      "file": "/web/src/views/Home.vue",
+      "line_start": 478,
+      "line_end": 490,
+      "css_class": ".modal-overlay",
+      "properties": {
+        "backdrop_filter": "blur(5px)",
+        "background": "rgba(0, 0, 0, 0.7)",
+        "background_rgba": "rgba(0, 0, 0, 0.7)",
+        "opacity": 0.7
+      },
+      "adjustable_params": {
+        "blur_radius": {
+          "current": "5px",
+          "recommended_range": "3-10px"
+        },
+        "background_opacity": {
+          "current": 0.7,
+          "recommended_range": "0.5-0.8"
+        }
+      },
+      "usage": "友情链接弹窗背景遮罩"
+    },
+    {
+      "id": 4,
+      "name": "广告占位符毛玻璃效果",
+      "component": "Home",
+      "file": "/web/src/views/Home.vue",
+      "line_start": 427,
+      "line_end": 441,
+      "css_class": ".ad-placeholder",
+      "properties": {
+        "backdrop_filter": "blur(10px)",
+        "background": "rgba(255, 255, 255, 0.1)",
+        "background_rgba": "rgba(255, 255, 255, 0.1)",
+        "opacity": 0.1,
+        "border": "2px dashed rgba(255, 255, 255, 0.3)",
+        "border_radius": "12px",
+        "color": "rgba(255, 255, 255, 0.6)"
+      },
+      "adjustable_params": {
+        "blur_radius": {
+          "current": "10px",
+          "recommended_range": "5-15px"
+        },
+        "background_opacity": {
+          "current": 0.1,
+          "recommended_range": "0.05-0.2"
+        },
+        "border_opacity": {
+          "current": 0.3,
+          "recommended_range": "0.2-0.5"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "name": "菜单栏固定区域毛玻璃效果 (已注释)",
+      "component": "Home",
+      "file": "/web/src/views/Home.vue",
+      "line_start": 252,
+      "line_end": 260,
+      "css_class": ".menu-bar-fixed",
+      "properties": {
+        "backdrop_filter": "blur(8px) /* COMMENTED OUT */",
+        "background": "rgba(0, 0, 0, 0.6) /* COMMENTED OUT */",
+        "status": "disabled"
+      },
+      "note": "此效果已被注释，需要手动启用"
+    }
+  ],
+  "related_transparent_effects": [
+    {
+      "name": "卡片半透明效果 (无 backdrop-filter)",
+      "component": "CardGrid",
+      "file": "/web/src/components/CardGrid.vue",
+      "line_start": 177,
+      "line_end": 195,
+      "css_class": ".link-item",
+      "properties": {
+        "background_color": "rgba(255, 255, 255, 0.15)",
+        "background_color_hover": "rgba(255, 255, 255, 0.3)",
+        "box_shadow": "0 1px 3px rgba(0, 0, 0, 0.1)",
+        "box_shadow_hover": "0 3px 6px rgba(0, 0, 0, 0.15)",
+        "border_radius": "15px"
+      },
+      "note": "使用半透明背景但未使用 backdrop-filter"
+    }
+  ],
+  "css_template": {
+    "standard_frosted_glass": {
+      "backdrop-filter": "blur(10px)",
+      "background": "rgba(255, 255, 255, 0.15)",
+      "border": "1px solid rgba(255, 255, 255, 0.2)",
+      "box-shadow": "0 4px 16px rgba(0, 0, 0, 0.2)",
+      "border-radius": "12px"
+    },
+    "safari_compatibility": {
+      "-webkit-backdrop-filter": "blur(10px)",
+      "backdrop-filter": "blur(10px)"
+    }
+  },
+  "performance_recommendations": {
+    "max_blur_radius": "15px",
+    "mobile_blur_radius": "5-8px",
+    "avoid": "过多毛玻璃元素在滚动容器中"
+  },
+  "browser_support": {
+    "Chrome": "76+",
+    "Safari": "9+ (需要 -webkit- 前缀)",
+    "Firefox": "103+",
+    "Edge": "79+",
+    "IE": "不支持"
+  }
+}
