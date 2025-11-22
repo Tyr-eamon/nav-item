@@ -177,8 +177,7 @@ const filteredCards = computed(() => {
   );
 });
 
-onMounted(async () => {
-  // 获取背景图片URL
+async function refreshBackgroundImage() {
   try {
     const bgRes = await getBackgroundImage();
     if (bgRes.data.url) {
@@ -187,6 +186,11 @@ onMounted(async () => {
   } catch (err) {
     console.error('获取背景图片失败:', err);
   }
+}
+
+onMounted(async () => {
+  // 获取背景图片URL
+  await refreshBackgroundImage();
 
   const res = await getMenus();
   menus.value = res.data;
@@ -201,6 +205,13 @@ onMounted(async () => {
   
   const friendRes = await getFriends();
   friendLinks.value = friendRes.data;
+
+  // 监听页面可见性变化，当页面重新获得焦点时刷新背景图片
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      refreshBackgroundImage();
+    }
+  });
 });
 
 async function selectMenu(menu, parentMenu = null) {
