@@ -341,7 +341,7 @@ function handleLogoError(event) {
 
 .home-container {
   min-height: 95vh;
-  background-image: url('https://link.tyrlink.dpdns.org/anyuan.png');
+  background-image: url('https://link.tyrlink.dpdns.org/neko.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -737,5 +737,6 @@ function handleLogoError(event) {
   }
 }
 </style> 
+
 
 
