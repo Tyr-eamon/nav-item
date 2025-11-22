@@ -39,12 +39,16 @@ jobs:
         id: prep
         run: echo "image=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/nav-item" >> $GITHUB_OUTPUT
 
+      - name: Generate version tag
+        id: vars
+        run: echo "VERSION=0.${GITHUB_RUN_NUMBER}" >> $GITHUB_OUTPUT
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ${{ steps.prep.outputs.image }}:latest
+          tags: ${{ steps.prep.outputs.image }}:${{ steps.vars.outputs.VERSION }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
             org.opencontainers.image.description=nav-item
