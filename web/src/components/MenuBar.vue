@@ -73,16 +73,16 @@ function hideSubMenu(menuId) {
 }
 
 .menu-bar button {
-  background: rgba(139, 100, 80, 0.15);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: none;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
   padding: 0.8rem 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
@@ -101,16 +101,12 @@ function hideSubMenu(menuId) {
 }
 
 .menu-bar button:hover {
-  background: rgba(139, 100, 80, 0.3);
   color: #399dff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .menu-bar button.active {
-  background: rgba(57, 157, 255, 0.25);
   color: #399dff;
-  border-color: rgba(57, 157, 255, 0.3);
 }
 
 .menu-bar button.active::before {
@@ -123,52 +119,50 @@ function hideSubMenu(menuId) {
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(40, 30, 25, 0.75);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
+  background: #5c595900;
+  backdrop-filter: blur(8px);
+  border-radius: 6px;
   min-width: 120px;
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s ease;
   z-index: 1000;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  margin-top: 4px;
-  padding: 4px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: -2px; 
 }
 
 .sub-menu.show {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(2px);
 }
 
 .sub-menu-item {
   display: block !important;
   width: 100% !important;
   text-align: center !important;
-  padding: 0.5rem 1rem !important;
+  padding: 0.4rem 1rem !important;
   border: none !important;
   background: transparent !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: #fff !important;
   font-size: 14px !important;
   font-weight: 400 !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
-  border-radius: 4px !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 0 !important;
+  text-shadow: none !important;
   line-height: 1.5 !important;
-  margin: 0 4px !important;
 }
 
 .sub-menu-item:hover {
-  background: rgba(57, 157, 255, 0.3) !important;
+  background: rgba(57, 157, 255, 0.25) !important;
   color: #399dff !important;
   transform: none !important;
 }
 
 .sub-menu-item.active {
-  background: rgba(57, 157, 255, 0.4) !important;
+  background: rgba(57, 157, 255, 0.35) !important;
   color: #399dff !important;
   font-weight: 500 !important;
 }
@@ -192,8 +186,8 @@ function hideSubMenu(menuId) {
   }
   
   .sub-menu-item {
-    font-size: 12px !important;
-    padding: 0.3rem 0.8rem !important;
+    font-size: 8px !important;
+    padding: 0.2rem 0.8rem !important;
   }
 }
-</style>
+</style> 
