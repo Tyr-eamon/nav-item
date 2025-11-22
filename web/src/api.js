@@ -53,5 +53,8 @@ export const changePassword = (oldPassword, newPassword) => axios.put(`${BASE}/u
 export const getUsers = () => axios.get(`${BASE}/users`, { headers: authHeaders() });
 
 // 设置API
-export const getBackgroundImage = () => axios.get(`${BASE}/settings/background-image`);
+export const getBackgroundImage = () => {
+  const timestamp = new Date().getTime();
+  return axios.get(`${BASE}/settings/background-image`, { params: { t: timestamp } });
+};
 export const updateBackgroundImage = (url) => axios.post(`${BASE}/settings/background-image`, { url }, { headers: authHeaders() });
