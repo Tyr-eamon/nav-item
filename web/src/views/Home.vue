@@ -341,7 +341,7 @@ function handleLogoError(event) {
 
 .home-container {
   min-height: 95vh;
-  background-image: url('https://link.tyrlink.dpdns.org/1000027142_x4.jpg');
+  background-image: url('https://link.tyrlink.dpdns.org/IMG_20251122_193636.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -737,3 +737,4 @@ function handleLogoError(event) {
 }
 
 </style>
+
