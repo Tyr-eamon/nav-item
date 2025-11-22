@@ -124,7 +124,7 @@ const leftAds = ref([]);
 const rightAds = ref([]);
 const showFriendLinks = ref(false);
 const friendLinks = ref([]);
-const backgroundImageUrl = ref('https://link.tyrlink.dpdns.org/IMG_20251122_193636.png');
+const backgroundImageUrl = ref('https://link.tyrlink.dpdns.org/anyuan.png');
 
 // 聚合搜索配置
 const searchEngines = [
