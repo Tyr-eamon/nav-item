@@ -255,8 +255,8 @@ function handleLogoError(event) {
   left: 0;
   width: 100vw;
   z-index: 100;
-  /* background: rgba(0,0,0,0.6); /* 可根据需要调整 */
-  /* backdrop-filter: blur(8px);  /*  毛玻璃效果 */
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
 }
 
 .search-engine-select {
@@ -285,11 +285,11 @@ function handleLogoError(event) {
 .search-container {
   display: flex;
   align-items: center;
-  background: #b3b7b83b;
+  background: rgba(139, 100, 80, 0.35);
   border-radius: 20px;
   padding: 0.3rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
   max-width: 480px;
   width: 92%;
   position: relative;
@@ -348,7 +348,6 @@ function handleLogoError(event) {
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
-  /* padding: 1rem 1rem; */
   position: relative;
   padding-top: 50px; 
 }
@@ -425,9 +424,9 @@ function handleLogoError(event) {
 }
 
 .ad-placeholder {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 2px dashed rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 2px dashed rgba(255, 255, 255, 0.25);
   border-radius: 12px;
   color: rgba(255, 255, 255, 0.6);
   padding: 2rem 1rem;
@@ -481,12 +480,12 @@ function handleLogoError(event) {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(6px);
 }
 
 .modal-content {
@@ -737,5 +736,4 @@ function handleLogoError(event) {
   }
 }
 
-</style> 
-
+</style>
