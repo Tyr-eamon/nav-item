@@ -107,8 +107,13 @@ async function saveSettings() {
   }
 }
 
-function resetForm() {
-  onMounted();
+async function resetForm() {
+  try {
+    const res = await getBackgroundImage();
+    backgroundImageUrl.value = res.data.url || '';
+  } catch (err) {
+    console.error('获取背景图片设置失败:', err);
+  }
   message.value = '';
   previewError.value = false;
 }
